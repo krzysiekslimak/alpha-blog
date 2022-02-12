@@ -6,18 +6,24 @@
       <% end %>
     </ul>
   <% end %>
-  
+ 
   <%= form_with(model: @article, local: true) do |f| %>
-  
-    <p>
+<div class="container shadow mb-5 bg-body rounded p-4 ">   
+    <div class="mb-3">
       <%= f.label :title %><br/>
-      <%= f.text_field :title %>
-    </p>
-    <p>
+      <%= f.text_field :title, class: "w-50" %>
+    </div>
+    
+    <div class="mb-3">
       <%= f.label :description %><br/>
-      <%= f.text_area :description %>
-    </p>
+      <%= f.text_area :description, class: "w-100" %>
+    </div>
     <p>
       <%= f.submit %>
+     
     </p>
+</div>
   <% end %>
+<div class="p-5 container-fluid">
+<%= button_to "Cancel", articles_path, method: :get, class: "position-sticky start-50 translate-middle-x" %>
+</div>
