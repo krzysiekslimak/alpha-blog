@@ -1,10 +1,11 @@
 <h1 class= "text-center p-4">Article list</h1>
 
 <% @articles.each do |article| %>
+<div>
 <div class="container">
     <div class="card text-center shadow mb-5 bg-body rounded">
         <div class="card-header">
-            user name
+            <%= article.user.username %>
         </div>
         <div class="card-body">
             <h5 class="card-title"><%= article.title%></h5>
@@ -27,4 +28,6 @@
 
 <br>
 
-<div class="p-5 position-fixed "><%=button_to "New", new_article_path, method: :get, class: "btn btn-success" %></div><br>
+<div class="p-5" ><%=button_to "New", new_article_path, method: :get, id: "add_btn" %></div><br>
+</div>
+
