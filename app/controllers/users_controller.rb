@@ -11,6 +11,18 @@ class UsersController < ApplicationController
             render 'new', status: :unprocessable_entity  
         end
     end
+    def edit
+        @user = User.find(params[:id])
+    end
+    def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+            flash[:notice] = "User edited"
+            redirect_to root_path
+            else
+                render "edit", status: :unprocessable_entity
+        end
+    end
 
     private
 
