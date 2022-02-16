@@ -1,0 +1,26 @@
+<h1 class= "text-center p-4">Alpha Blogers</h1>
+
+<% @users.each do |user| %>
+<div>
+<div class="container">
+    <div class="card text-center shadow mb-5 bg-body rounded">
+        <div class="card-header">
+            <%= user.username %>
+        </div>
+        <div class="card-body">
+        <%= gravatar_for user, size: 100 %>
+            <h5 class="card-text"><%= user.email%></h5>
+            <p class="card-text">Number of created articles: <%= user.articles.count%></p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <%= button_to "Show", user_path(user), method: :get, class:"btn btn-outline-secondary d-inline" %>
+            <%= button_to "Edit", edit_user_path(user), method: :get, class: "btn btn-outline-secondary d-inline" %>
+        </div>    
+                
+
+        </div>
+        <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(user.created_at) %> ago
+        </div>
+    </div>
+</div>
+<% end %>
