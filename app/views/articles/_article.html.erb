@@ -4,7 +4,8 @@
 <div class="container">
     <div class="card text-center shadow mb-5 bg-body rounded">
         <div class="card-header">
-            <%= article.user.username %>
+            <%= gravatar_for article.user, size: 50 %>
+            <%= link_to article.user.username, user_path(article.user) %>
         </div>
         <div class="card-body">
             <h5 class="card-title"><%= article.title%></h5>

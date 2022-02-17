@@ -1,6 +1,9 @@
 <h1 class= "text-center p-4">Article list</h1>
-
+<div class="d-flex justify-content-center text-center digg_pagination p-4">
+    <%= will_paginate @posts, :container => false %>
+</div>
 <%= render 'article' %>
+
 
 
 <div class="p-5" ><%=button_to "New", new_article_path, method: :get, id: "add_btn" %></div><br>
