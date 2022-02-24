@@ -1,3 +1,4 @@
 <h1 class= "text-center p-4">Edit user</h1>
 
 <%= render 'form' %>
+<%= button_to "Delete profile", user_path(current_user), class: "nav-btn-0 m-3 text-danger", method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
