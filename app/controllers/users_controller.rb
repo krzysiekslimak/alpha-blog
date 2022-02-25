@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     
     def destroy
         @user.destroy
-        session[:user_id] = nil #zerujemy sesję - inaczje błąd będzie 
+        session[:user_id] = nil if @user == current_user #zerujemy sesję - inaczje błąd będzie 
         flash[:notice] = "Twoje konto zostało usunięte"
         redirect_to articles_path
     end
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @user
+        if current_user != @user && !current_user.admin?
           flash[:alert] = "Możesz edytować tylko swoje konto."
           redirect_to @user
         end
