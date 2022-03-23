@@ -80,3 +80,18 @@ body {
 	*:first-child + html .digg_pagination {
 	  overflow: hidden; }
 
+	#shiftedLetter{
+		top: -5px;
+		font-size: 26px;
+		transform: rotate(90deg);
+		color: rgb(169, 99, 24);
+		left: -5px;
+	  }
+	#letterK{
+		left: -26px;
+		font-size:12px
+	  }
+	#sign{
+		text-decoration: none;
+		color: white;
+	  }
